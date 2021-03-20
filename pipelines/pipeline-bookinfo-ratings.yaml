@@ -1,0 +1,57 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: build-deploy-bookinfo-ratings
+spec:
+  params:
+  - name: buildRevision
+    description: The revision of the build, i.e. the commit revision of the application repository
+  - name: appGitUrl
+    description: The application repository
+  - name: configGitUrl
+    description: The application config (GitOps) repository
+  - name: appImage
+    description: The application Docker image name
+  - name: github-app-name
+    description: Github application name
+  workspaces:
+  - name: app-source
+  - name: config-source
+
+  tasks:
+  - name: build-docker
+    taskRef:
+      name: build-docker
+    params:
+    - name: buildRevision
+      value: $(params.buildRevision)
+    - name: appGitUrl
+      value: $(params.appGitUrl)
+    - name: appImage
+      value: $(params.appImage)
+    - name: github-app-name
+      value: $(params.github-app-name)
+    workspaces:
+    - name: app-source
+      workspace: app-source
+
+  - name: deploy-docker-systemtest
+    taskRef:
+      name: deploy
+    runAfter:
+    - build-docker
+    params:
+    - name: environment
+      value: systemtest-bookinfo
+    - name: argo-app-name
+      value: bookinfo-systemtest
+    - name: configGitUrl
+      value: $(params.configGitUrl)
+    - name: appImage
+      value: $(params.appImage)
+    - name: buildRevision
+      value: $(params.buildRevision)
+    workspaces:
+    - name: config-source
+      workspace: config-source
+---

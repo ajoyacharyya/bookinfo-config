@@ -11,10 +11,10 @@ spec:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      generateName: build-deploy-
+      generateName: build-deploy-bookinfo-reviews-
     spec:
       pipelineRef:
-        name: build-deploy
+        name: build-deploy-bookinfo-reviews
       serviceAccountName: pipeline
       params:
       - name: buildRevision
