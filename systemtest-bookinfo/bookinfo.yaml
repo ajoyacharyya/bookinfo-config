@@ -129,7 +129,7 @@ spec:
       serviceAccountName: bookinfo-ratings
       containers:
       - name: ratings
-        image: ajoyacharyya/bookinfo-ratings:431bceddae310a289e05f2d2be5ce2aff6ad668c
+        image: ajoyacharyya/bookinfo-ratings:770d6b4aa31b777dcac70f21b45b28f19f6d8ee5
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
