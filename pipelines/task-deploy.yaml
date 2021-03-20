@@ -35,6 +35,8 @@ spec:
       git remote add origin $(params.configGitUrl)
       git fetch --depth 1 origin master
       git checkout master
+      pwd
+      ls
 
   - name: update-yaml
     image: alpine/git:v2.26.2
