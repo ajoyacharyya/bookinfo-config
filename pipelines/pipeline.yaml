@@ -51,8 +51,6 @@ spec:
       value: $(params.appImage)
     - name: buildRevision
       value: $(params.buildRevision)
-    - name: github-app-name
-      value: $(params.github-app-name)
     workspaces:
     - name: config-source
       workspace: config-source
