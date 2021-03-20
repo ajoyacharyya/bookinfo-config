@@ -4,7 +4,7 @@ metadata:
   generateName: bookinfo-product-page-build-deploy-
 spec:
   pipelineRef:
-    name: build-deploy
+    name: build-deploy-bookinfo-productpage
   serviceAccountName: pipeline
   params:
   - name: buildRevision
