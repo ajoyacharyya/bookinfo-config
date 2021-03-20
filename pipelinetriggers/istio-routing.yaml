@@ -30,7 +30,7 @@ spec:
         prefix: "/bookinfo-details-github-listener-interceptor"
     route:
     - destination:
-        host: el-github-listener-interceptor
+        host: el-github-listener-interceptor-bookinfo-details
         port:
           number: 8080
 ---
@@ -50,7 +50,7 @@ spec:
         prefix: "/bookinfo-productpage-github-listener-interceptor"
     route:
     - destination:
-        host: el-github-listener-interceptor
+        host: el-github-listener-interceptor-bookinfo-productpage
         port:
           number: 8080
 ---
@@ -70,7 +70,7 @@ spec:
         prefix: "/bookinfo-ratings-github-listener-interceptor"
     route:
     - destination:
-        host: el-github-listener-interceptor
+        host: el-github-listener-interceptor-bookinfo-ratings
         port:
           number: 8080
 ---
@@ -90,7 +90,7 @@ spec:
         prefix: "/bookinfo-reviews-github-listener-interceptor"
     route:
     - destination:
-        host: el-github-listener-interceptor
+        host: el-github-listener-interceptor-bookinfo-reviews
         port:
           number: 8080
 ---
