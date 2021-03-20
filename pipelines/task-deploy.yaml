@@ -46,7 +46,7 @@ spec:
       set -e
 
       echo "updating $(inputs.params.environment) image to $(inputs.params.appImage):$(inputs.params.buildRevision)"
-      sed -i "s#$(inputs.params.appImage):[a-zA-Z0-9]\\+#$(inputs.params.appImage):$(inputs.params.buildRevision)#" bookinfo.yaml
+      sed -i "s#$(inputs.params.appImage):[a-zA-Z0-9]\\+#$(inputs.params.appImage):$(inputs.params.buildRevision)#" $(inputs.params.environment)/bookinfo.yaml
 
   - name: commit-push-changes-gitops
     image: alpine/git:v2.26.2
