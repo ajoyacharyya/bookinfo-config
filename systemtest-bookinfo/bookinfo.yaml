@@ -74,7 +74,7 @@ spec:
       serviceAccountName: bookinfo-details
       containers:
       - name: details
-        image: ajoyacharyya/bookinfo-details:e376b4b00120ef5dfbd13267709e8ca1c31113b1
+        image: ajoyacharyya/bookinfo-details:beb3666e183d8898bc101dcdf2063ee2a4c22f39
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
