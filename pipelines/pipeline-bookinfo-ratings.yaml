@@ -68,8 +68,8 @@ spec:
     - name: buildRevision
       value: $(params.buildRevision)
     workspaces:
-    - name: config-source
-      workspace: config-source
+    - name: app-source
+      workspace: app-source
 
   - name: deploy-bookinfo-ratings-production
     taskRef:
@@ -104,6 +104,6 @@ spec:
     - name: buildRevision
       value: $(params.buildRevision)
     workspaces:
-    - name: config-source
-      workspace: config-source
+    - name: app-source
+      workspace: app-source
 ---
