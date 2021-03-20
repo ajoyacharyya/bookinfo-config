@@ -80,7 +80,7 @@ spec:
     - name: environment
       value: production-bookinfo
     - name: argo-app-name
-      value: bookinfo-production
+      value: bookinfo-prod
     - name: configGitUrl
       value: $(params.configGitUrl)
     - name: appImage
