@@ -8,15 +8,15 @@ spec:
   serviceAccountName: pipeline
   params:
   - name: buildRevision
-    value: 'beb3666e183d8898bc101dcdf2063ee2a4c22f39'
+    value: '586d7fd1a8a33060828874bc4d2df78f0e913399'
   - name: appGitUrl
-    value: 'git@github.com:ajoyacharyya/bookinfo-details.git'
+    value: 'git@github.com:ajoyacharyya/bookinfo-productpage.git'
   - name: configGitUrl
     value: 'git@github.com:ajoyacharyya/bookinfo-config.git'
   - name: appImage
-    value: 'ajoyacharyya/bookinfo-details'
+    value: 'ajoyacharyya/bookinfo-productpage'
   - name: github-app-name
-    value: bookinfo-details
+    value: bookinfo-productpage
   workspaces:
   - name: app-source
     emptyDir: {}

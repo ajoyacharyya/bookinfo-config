@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
-  name: github-listener-interceptor
+  name: github-listener-interceptor-bookinfo-details
   namespace: tekton-pipelines
 spec:
   serviceAccountName: tekton-github-triggers
@@ -15,7 +15,70 @@ spec:
         eventTypes:
         - push
     bindings:
-    - ref: build-deploy-binding
+    - ref: build-deploy-binding-bookinfo-details
     template:
-      ref: build-deploy-template
+      ref: build-deploy-template-bookinfo-details
+---
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: github-listener-interceptor-bookinfo-productpage
+  namespace: tekton-pipelines
+spec:
+  serviceAccountName: tekton-github-triggers
+  triggers:
+  - name: github-listener
+    interceptors:
+    - github:
+        secretRef:
+          secretName: github-trigger-secret
+          secretKey: secretToken
+        eventTypes:
+        - push
+    bindings:
+    - ref: build-deploy-binding-bookinfo-productpage
+    template:
+      ref: build-deploy-template-bookinfo-productpage
+---
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: github-listener-interceptor-bookinfo-ratings
+  namespace: tekton-pipelines
+spec:
+  serviceAccountName: tekton-github-triggers
+  triggers:
+  - name: github-listener
+    interceptors:
+    - github:
+        secretRef:
+          secretName: github-trigger-secret
+          secretKey: secretToken
+        eventTypes:
+        - push
+    bindings:
+    - ref: build-deploy-binding-bookinfo-ratings
+    template:
+      ref: build-deploy-template-bookinfo-ratings
+---
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: github-listener-interceptor-bookinfo-reviews
+  namespace: tekton-pipelines
+spec:
+  serviceAccountName: tekton-github-triggers
+  triggers:
+  - name: github-listener
+    interceptors:
+    - github:
+        secretRef:
+          secretName: github-trigger-secret
+          secretKey: secretToken
+        eventTypes:
+        - push
+    bindings:
+    - ref: build-deploy-binding-bookinfo-reviews
+    template:
+      ref: build-deploy-template-bookinfo-reviews
 ---

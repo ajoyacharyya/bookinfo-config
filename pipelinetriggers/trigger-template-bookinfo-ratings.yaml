@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: build-deploy-template
+  name: build-deploy-template-bookinfo-ratings
   namespace: tekton-pipelines
 spec:
   params:
@@ -18,15 +18,15 @@ spec:
       serviceAccountName: pipeline
       params:
       - name: buildRevision
-        value: 'beb3666e183d8898bc101dcdf2063ee2a4c22f39'
+        value: '431bceddae310a289e05f2d2be5ce2aff6ad668c'
       - name: appGitUrl
-        value: 'git@github.com:ajoyacharyya/bookinfo-details.git'
+        value: 'git@github.com:ajoyacharyya/bookinfo-ratings.git'
       - name: configGitUrl
         value: 'git@github.com:ajoyacharyya/bookinfo-config.git'
       - name: appImage
-        value: 'ajoyacharyya/bookinfo-details'
+        value: 'ajoyacharyya/bookinfo-ratings'
       - name: github-app-name
-        value: bookinfo-details
+        value: bookinfo-ratings
       workspaces:
       - name: app-source
         emptyDir: {}
@@ -37,7 +37,7 @@ spec:
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerBinding
 metadata:
-  name: build-deploy-binding
+  name: build-deploy-binding-bookinfo-ratings
   namespace: tekton-pipelines
 spec:
   params:

@@ -17,7 +17,7 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: tekton-triggers
+  name: tekton-triggers-bookinfo-details
   namespace: tekton-pipelines
 spec:
   hosts:
@@ -27,7 +27,67 @@ spec:
   http:
   - match:
     - uri:
-        prefix: "/bookinfo-github-listener-interceptor"
+        prefix: "/bookinfo-details-github-listener-interceptor"
+    route:
+    - destination:
+        host: el-github-listener-interceptor
+        port:
+          number: 8080
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tekton-triggers-bookinfo-productpage
+  namespace: tekton-pipelines
+spec:
+  hosts:
+  - "devready.cp4multicloud-ibm.com"
+  gateways:
+  - tekton-triggers
+  http:
+  - match:
+    - uri:
+        prefix: "/bookinfo-productpage-github-listener-interceptor"
+    route:
+    - destination:
+        host: el-github-listener-interceptor
+        port:
+          number: 8080
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tekton-triggers-bookinfo-ratings
+  namespace: tekton-pipelines
+spec:
+  hosts:
+  - "devready.cp4multicloud-ibm.com"
+  gateways:
+  - tekton-triggers
+  http:
+  - match:
+    - uri:
+        prefix: "/bookinfo-ratings-github-listener-interceptor"
+    route:
+    - destination:
+        host: el-github-listener-interceptor
+        port:
+          number: 8080
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tekton-triggers-bookinfo-reviews
+  namespace: tekton-pipelines
+spec:
+  hosts:
+  - "devready.cp4multicloud-ibm.com"
+  gateways:
+  - tekton-triggers
+  http:
+  - match:
+    - uri:
+        prefix: "/bookinfo-reviews-github-listener-interceptor"
     route:
     - destination:
         host: el-github-listener-interceptor
