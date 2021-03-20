@@ -19,9 +19,9 @@ spec:
   - name: config-source
 
   tasks:
-  - name: build-$(params.github-app-name)
+  - name: build-docker
     taskRef:
-      name: build-$(params.github-app-name)
+      name: build-docker
     params:
     - name: buildRevision
       value: $(params.buildRevision)
@@ -35,11 +35,11 @@ spec:
     - name: app-source
       workspace: app-source
 
-  - name: deploy-$(params.github-app-name)-systemtest
+  - name: deploy-docker-systemtest
     taskRef:
       name: deploy
     runAfter:
-    - build-$(params.github-app-name)
+    - build-docker
     params:
     - name: environment
       value: systemtest
