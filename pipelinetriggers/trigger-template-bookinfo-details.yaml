@@ -18,7 +18,7 @@ spec:
       serviceAccountName: pipeline
       params:
       - name: buildRevision
-        value: 'beb3666e183d8898bc101dcdf2063ee2a4c22f39'
+        value: $(tt.params.buildRevision)
       - name: appGitUrl
         value: 'git@github.com:ajoyacharyya/bookinfo-details.git'
       - name: configGitUrl
