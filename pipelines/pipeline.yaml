@@ -42,9 +42,9 @@ spec:
     - build-docker
     params:
     - name: environment
-      value: systemtest
+      value: systemtest-bookinfo
     - name: argo-app-name
-      value: app-systemtest
+      value: bookinfo-systemtest
     - name: configGitUrl
       value: $(params.configGitUrl)
     - name: appImage
