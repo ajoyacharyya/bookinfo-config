@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: build-deploy-
+spec:
+  pipelineRef:
+    name: build-deploy
+  serviceAccountName: pipeline
+  params:
+  - name: buildRevision
+    value: 'e376b4b00120ef5dfbd13267709e8ca1c31113b1'
+  - name: appGitUrl
+    value: 'git@github.com:ajoyacharyya/bookinfo-details.git'
+  - name: configGitUrl
+    value: 'git@github.com:ajoyacharyya/bookinfo-config.git'
+  - name: appImage
+    value: 'ajoyacharyya/bookinfo-details'
+  - name: github-app-name
+    value: bookinfo-details
+  workspaces:
+  - name: app-source
+    emptyDir: {}
+  - name: config-source
+    emptyDir: {}
+---

@@ -68,11 +68,13 @@ spec:
       labels:
         app: details
         version: v1
+      annotations:
+          revision: "e376b4b00120ef5dfbd13267709e8ca1c31113b1"
     spec:
       serviceAccountName: bookinfo-details
       containers:
       - name: details
-        image: docker.io/istio/examples-bookinfo-details-v1:1.16.2
+        image: ajoyacharyya/bookinfo-details:e376b4b00120ef5dfbd13267709e8ca1c31113b1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
