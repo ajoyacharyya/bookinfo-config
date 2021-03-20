@@ -27,6 +27,6 @@ spec:
     image: ajoyacharyya/maven-jdk14:quarkus-deps-1.5.1-b1
     workingDir: "$(workspaces.app-source.path)"
     command:
-    - [echo, "Running Smoke Test"]
+    - [echo "Running Smoke Test"]
 
 ---
