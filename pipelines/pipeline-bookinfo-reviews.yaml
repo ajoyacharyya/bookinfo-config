@@ -19,7 +19,7 @@ spec:
   - name: config-source
 
   tasks:
-  - name: build-docker
+  - name: build-docker-bookinfo-reviews
     taskRef:
       name: build-docker
     params:
@@ -35,11 +35,11 @@ spec:
     - name: app-source
       workspace: app-source
 
-  - name: deploy-docker-systemtest
+  - name: deploy-bookinfo-reviews-systemtest
     taskRef:
       name: deploy
     runAfter:
-    - build-docker
+    - build-docker-bookinfo-reviews
     params:
     - name: environment
       value: systemtest-bookinfo
@@ -49,6 +49,58 @@ spec:
       value: $(params.configGitUrl)
     - name: appImage
       value: $(params.appImage)
+    - name: buildRevision
+      value: $(params.buildRevision)
+    workspaces:
+    - name: config-source
+      workspace: config-source
+
+  - name: run-system-test-bookinfo-reviews
+    taskRef:
+      name: run-systemtest
+    runAfter:
+    - deploy-bookinfo-reviews-systemtest
+    params:
+    - name: gateway
+      value: systemtest-bookinfo
+    - name: appGitUrl
+      value: $(params.appGitUrl)
+    - name: buildRevision
+      value: $(params.buildRevision)
+    workspaces:
+    - name: config-source
+      workspace: config-source
+
+  - name: deploy-bookinfo-reviews-production
+    taskRef:
+      name: deploy
+    runAfter:
+    - run-system-test-bookinfo-reviews
+    params:
+    - name: environment
+      value: production-bookinfo
+    - name: argo-app-name
+      value: bookinfo-production
+    - name: configGitUrl
+      value: $(params.configGitUrl)
+    - name: appImage
+      value: $(params.appImage)
+    - name: buildRevision
+      value: $(params.buildRevision)
+    workspaces:
+    - name: config-source
+      workspace: config-source
+
+  - name: run-smoke-test-bookinfo-reviews
+    taskRef:
+      name: run-smoketest
+    runAfter:
+    - deploy-bookinfo-reviews-production
+    params:
+    - name: gateway
+      value: systemtest-bookinfo
+    - name: appGitUrl
+      value: $(params.appGitUrl)
     - name: buildRevision
       value: $(params.buildRevision)
     workspaces:
