@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: build-$(params.github-app-name)
+  name: build-bookinfo-rating
 spec:
   params:
   - name: buildRevision
