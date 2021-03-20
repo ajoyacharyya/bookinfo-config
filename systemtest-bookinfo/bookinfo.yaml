@@ -123,11 +123,13 @@ spec:
       labels:
         app: ratings
         version: v1
+      annotations:
+        revision: "431bceddae310a289e05f2d2be5ce2aff6ad668c"
     spec:
       serviceAccountName: bookinfo-ratings
       containers:
       - name: ratings
-        image: docker.io/istio/examples-bookinfo-ratings-v1:1.16.2
+        image: ajoyacharyya/bookinfo-ratings:431bceddae310a289e05f2d2be5ce2aff6ad668c
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
@@ -326,11 +328,13 @@ spec:
       labels:
         app: productpage
         version: v1
+      annotations:
+        revision: "586d7fd1a8a33060828874bc4d2df78f0e913399"
     spec:
       serviceAccountName: bookinfo-productpage
       containers:
       - name: productpage
-        image: docker.io/istio/examples-bookinfo-productpage-v1:1.16.2
+        image: ajoyacharyya/bookinfo-productpage:586d7fd1a8a33060828874bc4d2df78f0e913399
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
