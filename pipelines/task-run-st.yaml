@@ -9,6 +9,7 @@ spec:
   - name: appGitUrl
   workspaces:
   - name: app-source
+  
   steps:
   - name: running-systemtest
     image: alpine/git:v2.26.2
@@ -24,7 +25,7 @@ spec:
       echo "Running System Test"
 
   - name: systemtest-final
-    image: ajoyacharyya/maven-jdk14:quarkus-deps-1.5.1-b1
+    image: alpine/git:v2.26.2
     workingDir: "$(workspaces.app-source.path)"
     command:
     - echo "Running System Test"
