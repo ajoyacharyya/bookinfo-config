@@ -45,8 +45,8 @@ spec:
       value: systemtest-bookinfo
     - name: argo-app-name
       value: bookinfo-systemtest
-    - name: configGitUrl
-      value: $(params.configGitUrl)
+    - name: appGitUrl
+      value: $(params.appGitUrl)
     - name: appImage
       value: $(params.appImage)
     - name: buildRevision
@@ -93,14 +93,14 @@ spec:
 
   - name: run-smoke-test-bookinfo-details
     taskRef:
-      name: run-systemtest
+      name: run-smoketest
     runAfter:
     - deploy-bookinfo-details-production
     params:
     - name: gateway
       value: systemtest-bookinfo
-    - name: configGitUrl
-      value: $(params.configGitUrl)
+    - name: appGitUrl
+      value: $(params.appGitUrl)
     - name: buildRevision
       value: $(params.buildRevision)
     workspaces:
