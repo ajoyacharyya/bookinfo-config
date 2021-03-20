@@ -17,5 +17,16 @@ spec:
       #!/usr/bin/env sh
       set -e
 
+      eval $(ssh-agent)
+      ssh-add ~/.ssh/id_*
+      git config --global core.sshCommand 'ssh -o StrictHostKeyChecking=accept-new'
+
       echo "Running Smoke Test"
+
+  - name: smoketest-final
+    image: ajoyacharyya/maven-jdk14:quarkus-deps-1.5.1-b1
+    workingDir: "$(workspaces.app-source.path)"
+    command:
+    - [echo, "Running Smoke Test"]
+
 ---
