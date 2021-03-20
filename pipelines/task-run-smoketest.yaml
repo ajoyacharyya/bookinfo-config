@@ -23,11 +23,4 @@ spec:
       git config --global core.sshCommand 'ssh -o StrictHostKeyChecking=accept-new'
 
       echo "Running Smoke Test"
-
-  - name: smoketest-final
-    image: alpine/git:v2.26.2
-    workingDir: "$(workspaces.app-source.path)"
-    command:
-    - echo "Running Smoke Test"
-
 ---
