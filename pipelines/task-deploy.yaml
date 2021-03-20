@@ -71,5 +71,5 @@ spec:
 
       argocd login $ARGOCD_SERVER --grpc-web-root-path /argo-cd --username $ARGOCD_USERNAME --password $ARGOCD_PASSWORD
       argocd app sync $(inputs.params.argo-app-name) --insecure
-      argocd app wait $(inputs.params.argo-app-name) --sync --health --operation --insecure
+      argocd app wait $(inputs.params.argo-app-name) --sync --health --insecure
 ---

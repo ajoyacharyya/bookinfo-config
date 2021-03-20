@@ -1,0 +1,36 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: bookinfo-tekton-triggers
+  namespace: tekton-pipelines
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "devready.cp4multicloud-ibm.com"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tekton-triggers
+  namespace: tekton-pipelines
+spec:
+  hosts:
+  - "devready.cp4multicloud-ibm.com"
+  gateways:
+  - tekton-triggers
+  http:
+  - match:
+    - uri:
+        prefix: "/bookinfo-github-listener-interceptor"
+    route:
+    - destination:
+        host: el-github-listener-interceptor
+        port:
+          number: 8080
+---
