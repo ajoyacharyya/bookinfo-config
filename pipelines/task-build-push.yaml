@@ -27,10 +27,12 @@ spec:
       git remote add origin $(params.appGitUrl)
       git fetch --depth 1 origin $(params.buildRevision)
       git checkout FETCH_HEAD
+      ls
 
   - name: build-image
     image: quay.io/buildah/stable
     workingDir: "$(workspaces.app-source.path)/$(params.github-app-name)"
+    command: [ls]
     command: ['buildah', 'bud', '--tls-verify=false', '--layers', '-f', 'Dockerfile', '-t', '$(params.appImage):$(params.buildRevision)', '.']
     volumeMounts:
     - name: varlibc
