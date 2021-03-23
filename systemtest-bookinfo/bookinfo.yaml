@@ -74,7 +74,7 @@ spec:
       serviceAccountName: bookinfo-details
       containers:
       - name: details
-        image: ajoyacharyya/bookinfo-details:b2b74e6233b91ddc6d712739c7045a87218d40f6
+        image: ajoyacharyya/bookinfo-details:ec8c07813dfdd3150d847130c3440ba8af059a4b
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
@@ -129,7 +129,7 @@ spec:
       serviceAccountName: bookinfo-ratings
       containers:
       - name: ratings
-        image: ajoyacharyya/bookinfo-ratings:770d6b4aa31b777dcac70f21b45b28f19f6d8ee5
+        image: ajoyacharyya/bookinfo-ratings:fe36db721b89e8a6c34ede38727c89f3d936c2bd
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
