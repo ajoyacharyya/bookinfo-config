@@ -334,7 +334,7 @@ spec:
       serviceAccountName: bookinfo-productpage
       containers:
       - name: productpage
-        image: ajoyacharyya/bookinfo-productpage:52bc1b52e3241c62e5f1b36bbe2060fa26e6ae90
+        image: ajoyacharyya/bookinfo-productpage:c9304df7440b70a3ec87f35c5a6f283aa474835e
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
