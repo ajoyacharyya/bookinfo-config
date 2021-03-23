@@ -54,6 +54,9 @@ spec:
   - name: v2-mysql-vm
     labels:
       version: v2-mysql-vm
+  - name: ajoy
+    labels:
+      version: ajoy
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
