@@ -7,4 +7,4 @@ curl -i \
   -H 'X-Hub-Signature: sha1=MySecret123' \
   -H 'Content-Type: application/json' \
   -d '{"ref":"refs/heads/main","head_commit":{"id":"beb3666e183d8898bc101dcdf2063ee2a4c22f39"}}' \
-  http://devready.cp4multicloud-ibm.com/bookinfo-github-listener-interceptor
+  http://devready.cp4multicloud-ibm.com/bookinfo-productpage-github-listener-interceptor
