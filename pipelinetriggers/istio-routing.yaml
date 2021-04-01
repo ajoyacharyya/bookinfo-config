@@ -12,7 +12,7 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "devready1.cp4multicloud-ibm.com"
+    - "devready.cp4multicloud-ibm.com"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -21,7 +21,7 @@ metadata:
   namespace: tekton-pipelines
 spec:
   hosts:
-  - "devready1.cp4multicloud-ibm.com"
+  - "devready.cp4multicloud-ibm.com"
   gateways:
   - bookinfo-tekton-triggers
   http:
@@ -41,7 +41,7 @@ metadata:
   namespace: tekton-pipelines
 spec:
   hosts:
-  - "devready1.cp4multicloud-ibm.com"
+  - "devready.cp4multicloud-ibm.com"
   gateways:
   - bookinfo-tekton-triggers
   http:
@@ -61,7 +61,7 @@ metadata:
   namespace: tekton-pipelines
 spec:
   hosts:
-  - "devready1.cp4multicloud-ibm.com"
+  - "devready.cp4multicloud-ibm.com"
   gateways:
   - bookinfo-tekton-triggers
   http:
@@ -81,7 +81,7 @@ metadata:
   namespace: tekton-pipelines
 spec:
   hosts:
-  - "devready1.cp4multicloud-ibm.com"
+  - "devready.cp4multicloud-ibm.com"
   gateways:
   - bookinfo-tekton-triggers
   http:
